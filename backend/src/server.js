@@ -22,9 +22,8 @@ const __dirname = path.resolve();
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    origin: "https://streamify-aauo.vercel.app",
-    credentials: true, // allow frontend to send cookies
+    origin: ["http://localhost:5173", "https://streamify-aauo.vercel.app"],
+    credentials: true,
   }),
 );
 
