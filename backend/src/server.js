@@ -44,6 +44,19 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }
+app.get("/test", async (req, res) => {
+  try {
+    await connectDB();
+    res.json({
+      mongo: "connected",
+      streamKey: process.env.STEAM_API_KEY?.length,
+      streamSecret: process.env.STEAM_API_SECRET?.length,
+      jwt: !!process.env.JWT_SECRET_KEY,
+    });
+  } catch (e) {
+    res.json({ error: e.message });
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
