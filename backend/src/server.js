@@ -22,7 +22,10 @@ const __dirname = path.resolve();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://streamify-aauo.vercel.app"],
+    origin: [
+      "http://localhost:5173",
+      "https://streamify-appp.vercel.app", // your stable frontend domain
+    ],
     credentials: true,
   }),
 );
